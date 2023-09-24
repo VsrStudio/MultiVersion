@@ -60,7 +60,7 @@ class StartGamePacketTranslator {
         ($packet->buffer .= (\pack("V", $packet->limitedWorldWidth)));
         ($packet->buffer .= (\pack("V", $packet->limitedWorldLength)));
         ($packet->buffer .= ($packet->isNewNether ? "\x01" : "\x00"));
-        if($protocol >= ProtocolConstants::BEDROCK_1_17_30){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_30){
             $packet->putString(""); //Education URI resource -> buttonName
             $packet->putString(""); //Education URI resource -> link URI
         }
@@ -93,10 +93,10 @@ class StartGamePacketTranslator {
 
         $packet->putString($packet->multiplayerCorrelationId);
         ($packet->buffer .= ($packet->enableNewInventorySystem ? "\x01" : "\x00"));
-        if($protocol >= ProtocolConstants::BEDROCK_1_17_0){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_0){
             $packet->putString($packet->serverSoftwareVersion);
         }
-        if($protocol >= ProtocolConstants::BEDROCK_1_18_0){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_10){
             $packet->putLLong(0);
         }
     }
