@@ -10,7 +10,6 @@ use pocketmine\block\BlockIds;
 use pocketmine\nbt\NetworkLittleEndianNBTStream;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\convert\R12ToCurrentBlockMapEntry;
-use pocketmine\network\mcpe\NetworkBinaryStream;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\utils\AssumptionFailedError;
 use function file_get_contents;
@@ -44,7 +43,6 @@ class MultiVersionRuntimeBlockMapping{
             if($canonicalBlockStatesFile === false){
                 throw new AssumptionFailedError("Missing required resource file");
             }
-            $stream = new NetworkBinaryStream($canonicalBlockStatesFile);
             $list = [];
             while(!$stream->feof()){
                 $list[] = $stream->getNbtCompoundRoot();
