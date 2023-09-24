@@ -14,7 +14,7 @@ class NpcRequestPacketTranslator{
         $packet->requestType = $packet->getByte();
         $packet->commandString = $packet->getString();
         $packet->actionType = $packet->getByte();
-        if($protocol >= ProtocolConstants::BEDROCK_1_17_10){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_0){
             $packet->sceneName = $packet->getString();
         }
     }
