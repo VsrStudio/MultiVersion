@@ -15,7 +15,7 @@ class SetTitlePacketTranslator{
         $packet->putVarInt($packet->fadeInTime);
         $packet->putVarInt($packet->stayTime);
         $packet->putVarInt($packet->fadeOutTime);
-        if($protocol >= ProtocolConstants::BEDROCK_1_17_10){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_0){
             $packet->putString($packet->xuid);
             $packet->putString($packet->platformOnlineId);
         }
