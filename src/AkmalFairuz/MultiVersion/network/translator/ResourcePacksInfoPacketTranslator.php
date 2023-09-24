@@ -12,7 +12,7 @@ class ResourcePacksInfoPacketTranslator{
     public static function serialize(ResourcePacksInfoPacket $packet, int $protocol) {
         $packet->putBool($packet->mustAccept);
         $packet->putBool($packet->hasScripts);
-        if($protocol >= ProtocolConstants::BEDROCK_1_17_10){
+        if($protocol >= ProtocolConstants::BEDROCK_1_20_0){
             $packet->putBool($packet->forceServerPacks);
         }
         $packet->putLShort(count($packet->behaviorPackEntries));
