@@ -44,8 +44,7 @@ class MultiVersionRuntimeBlockMapping{
                 throw new AssumptionFailedError("Missing required resource file");
             }
             $list = [];
-            while(!$stream->feof()){
-                $list[] = $stream->getNbtCompoundRoot();
+                $list[] = getNbtCompoundRoot();
             }
             self::$bedrockKnownStates[$protocol] = $list;
 
